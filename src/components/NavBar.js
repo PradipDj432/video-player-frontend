@@ -12,13 +12,12 @@ import {
   Divider,
 } from "@mui/material";
 import { Home, PostAdd, Person, CloudUpload, Info } from "@mui/icons-material";
-import { Link } from "react-router-dom"; // Import Link from react-router-dom
+import { Link } from "react-router-dom";
 import MenuIcon from "@mui/icons-material/Menu";
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import { styled, useTheme } from "@mui/material/styles";
-import RoutesComponent from "../routes/Routes";
-// Drawer settings
+
 const drawerWidth = 240;
 
 const openedMixin = (theme) => ({
@@ -100,11 +99,10 @@ export default function NavBar() {
   ];
 
   const activeColor = "#1976d2";
-  const inactiveColor = "#000000";
+  const inactiveColor = "#444444";
 
   return (
     <div style={{ display: "flex" }}>
-      {/* AppBar */}
       <AppBar position="fixed" open={open}>
         <Toolbar>
           <IconButton
@@ -124,7 +122,6 @@ export default function NavBar() {
         </Toolbar>
       </AppBar>
 
-      {/* Drawer */}
       <CustomDrawer variant="permanent" open={open}>
         <DrawerHeader>
           <IconButton onClick={handleDrawerClose}>
@@ -164,19 +161,6 @@ export default function NavBar() {
           ))}
         </List>
       </CustomDrawer>
-
-      {/* Main content area */}
-      <div
-        style={{
-          flexGrow: 1,
-          padding: "20px",
-          marginLeft: open ? 0 : -1 * drawerWidth + 60,
-          marginTop: 60,
-          transition: "margin 0.3s",
-        }}
-      >
-        <RoutesComponent />
-      </div>
     </div>
   );
 }
