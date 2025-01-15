@@ -7,6 +7,7 @@ import User from "./pages/User"; // Your user component
 import Upload from "./pages/Upload"; // Your upload component
 import About from "./pages/About"; // Your about component
 import { styled } from "@mui/material/styles";
+import Profile from "./pages/Profile";
 
 const Main = styled("main", { shouldForwardProp: (prop) => prop !== "open" })(
   ({ theme, open }) => ({
@@ -37,6 +38,7 @@ function App() {
           <Route path="/post" element={<Post />} />
           <Route path="/user" element={<User />} />
           <Route path="/upload" element={<Upload />} />
+          <Route path="/profile" element={<Profile />} />
           <Route path="/about" element={<About />} />
         </Routes>
       </Main>
