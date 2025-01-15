@@ -14,7 +14,7 @@ import {
 } from "@mui/material";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-
+import CONFIG from "./../utils/common";
 export default function MP4Upload() {
   const [loading, setLoading] = React.useState(false);
   const [formData, setFormData] = React.useState({
@@ -47,24 +47,21 @@ export default function MP4Upload() {
       data.append("description", formData.description);
       data.append("video_lengths", 30);
       // Send the data to the API
-      const response = await axios.post(
-        "https://video-player-backend-lo6k.onrender.com/video",
-        data,
-        {
-          headers: {
-            "Content-Type": "multipart/form-data",
-          },
-        }
-      );
+      const URL = `${CONFIG.BASE_URL}video`;
+      const response = await axios.post(URL, data, {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+      });
       debugger;
       if (response.status === 201) {
-        toast.success("MP4 uploaded successfully!");
+        toast.success("Post uploaded successfully!");
         setFormData({ file: null, name: "", description: "" });
       } else {
         throw new Error("Failed to upload");
       }
     } catch (error) {
-      toast.error(error.response?.data?.message || "Failed to upload MP4.");
+      toast.error(error.response?.data?.message || "Failed to upload post");
     } finally {
       setLoading(false);
     }
@@ -75,7 +72,7 @@ export default function MP4Upload() {
       <ToastContainer />
       <Stack spacing={2}>
         <Typography variant="h4" align="center" sx={{ mt: 4 }}>
-          MP4 Upload
+          Upload Post
         </Typography>
         {loading ? (
           <CircularProgress sx={{ mx: "auto" }} />
@@ -90,7 +87,7 @@ export default function MP4Upload() {
           >
             <CardContent>
               <Box sx={{ mb: 3 }}>
-                <Typography variant="h6">Upload MP4 File</Typography>
+                <Typography variant="h6">Upload Photos/Video </Typography>
                 <Button
                   variant="contained"
                   component="label"
@@ -101,7 +98,7 @@ export default function MP4Upload() {
                   <input
                     type="file"
                     name="file"
-                    accept="video/mp4"
+                    accept="video/mp4,image/*"
                     hidden
                     onChange={handleChange}
                   />
