@@ -47,11 +47,15 @@ export default function MP4Upload() {
       data.append("description", formData.description);
       data.append("video_lengths", 30);
       // Send the data to the API
-      const response = await axios.post("http://localhost:3000/video", data, {
-        headers: {
-          "Content-Type": "multipart/form-data",
-        },
-      });
+      const response = await axios.post(
+        "https://video-player-backend-lo6k.onrender.com/video",
+        data,
+        {
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
+        }
+      );
 
       if (response.status == 200) {
         toast.success("MP4 uploaded successfully!");
