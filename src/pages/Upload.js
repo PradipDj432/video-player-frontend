@@ -56,9 +56,10 @@ export default function MP4Upload() {
           },
         }
       );
-
-      if (response.status == 200) {
+      debugger;
+      if (response.status === 201) {
         toast.success("MP4 uploaded successfully!");
+        setFormData({ file: null, name: "", description: "" });
       } else {
         throw new Error("Failed to upload");
       }
