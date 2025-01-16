@@ -8,7 +8,7 @@ import Upload from "./pages/Upload"; // Your upload component
 import About from "./pages/About"; // Your about component
 import { styled } from "@mui/material/styles";
 import Profile from "./pages/Profile";
-
+import Chat from "./pages/Chat";
 const Main = styled("main", { shouldForwardProp: (prop) => prop !== "open" })(
   ({ theme, open }) => ({
     flexGrow: 1,
@@ -40,6 +40,7 @@ function App() {
           <Route path="/upload" element={<Upload />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/about" element={<About />} />
+          <Route path="/chat" element={<Chat />} />
         </Routes>
       </Main>
     </Router>

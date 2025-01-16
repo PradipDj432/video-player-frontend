@@ -97,6 +97,7 @@ export default function NavBar() {
     { name: "upload", label: "Upload", icon: <CloudUpload /> },
     { name: "about", label: "About", icon: <Info /> },
     { name: "profile", label: "Profile", icon: <Person /> },
+    { name: "chat", label: "Chat", icon: <Info /> },
   ];
 
   const activeColor = "#1976d2";

@@ -5,7 +5,7 @@ import Post from "../pages/Post";
 import User from "../pages/User";
 import Upload from "../pages/Upload";
 import About from "../pages/About";
-
+import Chat from "../pages/Chat";
 function RoutesComponent() {
   return (
     <Routes>
@@ -14,6 +14,7 @@ function RoutesComponent() {
       <Route path="/user" element={<User />} />
       <Route path="/upload" element={<Upload />} />
       <Route path="/about" element={<About />} />
+      <Route path="/chat" element={<Chat />} />
     </Routes>
   );
 }
