@@ -12,7 +12,7 @@ import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import io from "socket.io-client";
 import CONFIG from "../utils/common";
-// Change the socket connection to point to port 3000
+
 const socket = io(CONFIG.BASE_URL);
 
 function ChatApp() {
